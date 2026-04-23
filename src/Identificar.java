@@ -1,6 +1,6 @@
 public class Identificar{
 
-    public String registrador(String x){
+    public static String registrador(String x){
         String registrador = "";
         if (x.equals("$r0")|| x.equals("$zero")){
             registrador = registrador + "00000"; //R0 = 0
@@ -66,13 +66,13 @@ public class Identificar{
             registrador = registrador + "11110"; // R30 = 30
         } else if (x.equals("$ra")){ 
             registrador = registrador + "11111"; // R31 = 31
-        } else [
+        } else {
             registrador = registrador + "Não listado"; // erro
-        ]
+        }
         return registrador;
     }
 
-    public String imediato(String y, int qntdBits){
+    public static String imediato(String y, int qntdBits){
         int numero = Integer.parseInt(y);
         String resultado = "";
         if (numero<0){
@@ -83,6 +83,62 @@ public class Identificar{
             Integer.toBinaryString(numero)).replace(' ', '0');
         }
         return resultado;
+    }
+
+    public static String function(String z){
+        String function = "";
+        if (z.equals("add")) {
+            function += "100000";
+        }else if (z.equals("sub")) {
+            function += "100010";
+        }else if (z.equals("and")) {
+            function += "100100";
+        }else if (z.equals("or")) {
+            function += "100101";
+        }else if (z.equals("xor")) {
+            function += "100110";
+        }else{
+            function += "";
+        }
+        return function;
+    }
+
+    public static String opcodeTipoI(String a){
+        String opcode = "";
+        if (a.equals("addi")) {
+            opcode += "001000";
+        } else if (a.equals("andi")) {
+            opcode += "001100";
+        } else if (a.equals("ori")) {
+            opcode += "001101";
+        } else if (a.equals("xori")) {
+            opcode += "001110";
+        } else if (a.equals("lui")) {
+            opcode += "001111";
+        } else if (a.equals("beq")) {
+            opcode += "000100";
+        } else if (a.equals("bne")) {
+            opcode += "000101";
+        } else if (a.equals("blez")) {
+            opcode += "000110";
+        } else if (a.equals("bgtz")) {
+            opcode += "000111";
+        }else if (a.equals("lb")) {
+            opcode += "100000";
+        }else if (a.equals("lh")) {
+            opcode += "100001";
+        }else if (a.equals("lw")) {
+            opcode += "100011";
+        }else if (a.equals("sb")) {
+            opcode += "101000";
+        }else if (a.equals("sh")) {
+            opcode += "101001";
+        }else if (a.equals("sw")) {
+            opcode += "101011";
+        }else {
+            opcode = "";
+        }
+        return opcode;
     }
 
 }
