@@ -8,9 +8,9 @@ import java.io.BufferedWriter;
 
 public class Main {
     public static void main(String[] args) {
-        for (int i = 1; i <= 2; i++) {
-            String endereco = "D:\\Teste-" + i + ".txt";
-            String enderecoArquivoCriado = "D:\\ResultadoTeste-" + i + ".txt";
+        for (int i = 1; i <= 10; i++) {
+            String endereco = "D:\\Teste-0" + i + ".txt";
+            String enderecoArquivoCriado = "D:\\ResultadoTeste-0" + i + ".txt";
             File arquivo = new File(endereco);
             String linha;
             Scanner scanner = null;
